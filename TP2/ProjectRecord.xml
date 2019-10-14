@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Project_Record SYSTEM "file:/D:/Uminho/4%C2%BA%20Ano/WEB/TP2/Project_Record.dtd">
+<Project_Record>
+    <cabeçalho>
+        <key_name></key_name>
+        <title></title>
+        <subtitle></subtitle>
+        <begin_date></begin_date>
+        <end_date></end_date>
+        <supervisor>
+            <nome></nome>
+        </supervisor>
+    </cabeçalho>
+    <workTeam>
+        <elementos_equipa></elementos_equipa>
+    </workTeam>
+    <Abstract></Abstract>
+    <deliverables>
+        <link></link>
+    </deliverables>
+</Project_Record>
