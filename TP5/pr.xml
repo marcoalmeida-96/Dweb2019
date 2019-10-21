@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pr SYSTEM "file:/D:/Uminho/4%C2%BA%20Ano/WEB/TP4/pr.dtd">
+<pr>
+    <metadata>
+        <keyname>WEB_TP5</keyname>
+        <title>TP5</title>
+        <supervisor homepage="http://www4.di.uminho.pt/~jcr/">José Carlos Ramalho</supervisor>
+        <bdate>11-10-2019</bdate>
+        <edate>14-10-2019</edate>
+    </metadata>
+    <workteam>
+        <worker>
+            <identifier>PG41087</identifier>
+            <name>Marco Rodrigues Almeida</name>
+            <email>marcoalmeida.96@hotmail.com</email>
+            <git>https://github.com/marcoalmeida-96</git>
+        </worker>
+    </workteam>
+    <abstract>
+        <p>Na Unidade Curricular de Desenvolvimento Aplicações WEB, foi proposto no TP5 a resolução de uma página para visualizar e criar novas tarefas</p>
+    </abstract>
+    <deliverables>
+        <deliverable path="pr.xml">TP5 - XML(PR)</deliverable>
+        <deliverable path="pr.html">TP5 - HTML(PR)</deliverable>
+        <deliverable path="Servidor/GestaoTarefas.js">TP5 - Servidor</deliverable>
+    </deliverables>
+</pr>
