@@ -1,0 +1,51 @@
+extends layout
+
+block content
+  h1 Gestão de Arquivo Sonoro
+  .w3-container
+        .w3-card-4
+            header.w3-container
+            .w3-container
+                form.w3-container(action='/' method='POST' id='form1')
+                    label
+                        b Província
+                    input.w3-input.w3-border(type='text' name='prov' id='prov' )
+                    label
+                        b Local
+                    input.w3-input.w3-border(type='text' name='local' id='local' )
+                    label
+                        b Título
+                    input.w3-input.w3-border(type='text' name='tit' id='tit' )
+                    label
+                        b Músico
+                    input.w3-input.w3-border(type='text' name='musico' id='musico' )
+                    label
+                        b Duração
+                    input.w3-input.w3-border(type='text' name='duracao' id='duracao' )
+                    input.w3-btn.w3-blue-grey(name="enviar" type='submit' value='Enviar')
+                    input.w3-btn.w3-blue-grey(type="hidden" visible='false' name="update" value="Update" onclick="editItem(document.getElementById('prov').value,document.getElementById('local').value,document.getElementById('tit').value,document.getElementById('musico').value,document.getElementById('duracao').value)" )
+            .w3-card-4
+                br
+                br
+                br
+                table.w3-table-all
+                    tr  
+                        th Província
+                        th Local
+                        th Título
+                        th Músico
+                        th Duração
+                        th Operações
+                    each a in lista
+                        tr
+                            td= a.prov
+                            td= a.local
+                            td= a.tit
+                            td= a.musico
+                            td= a.duracao
+                            td
+                                button.w3-button.w3-circle(onclick="apagaItem('" + a.tit + "')") Apagar
+                                button.w3-button.w3-circle(onclick="mostrarItem('" + a.tit + "')") Ver
+
+            footer.w3-container
+                address Gerado por Gestão de Arquivo Sonoro
