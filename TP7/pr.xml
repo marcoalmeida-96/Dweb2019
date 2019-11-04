@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pr SYSTEM "file:/D:/Uminho/4%C2%BA%20Ano/WEB/TP4/pr.dtd">
+<pr>
+    <metadata>
+        <keyname>WEB_TP7</keyname>
+        <title>TP7</title>
+        <supervisor homepage="http://www4.di.uminho.pt/~jcr/">José Carlos Ramalho</supervisor>
+        <bdate>1-11-2019</bdate>
+        <edate>4-11-2019</edate>
+    </metadata>
+    <workteam>
+        <worker>
+            <identifier>PG41087</identifier>
+            <name>Marco Rodrigues Almeida</name>
+            <email>marcoalmeida.96@hotmail.com</email>
+            <git>https://github.com/marcoalmeida-96</git>
+        </worker>
+    </workteam>
+    <abstract>
+        <p>Na Unidade Curricular de Desenvolvimento Aplicações WEB, foi proposto no TP7 a criação de um servidor capaz de gerir pedidos GET, POST, PUT, DELETE sobre uma lista de filmes. Foi utilizado a framework Express. Foi também pedido para criar umas query's em MongoDB sobre uma determinada base de dados.</p>
+    </abstract>
+    <deliverables>
+        <deliverable path="pr.xml">TP7 - XML(PR)</deliverable>
+        <deliverable path="pr.html">TP7 - HTML(PR)</deliverable>
+        <deliverable path="Query's.txt">TP7 - Query's</deliverable>
+    </deliverables>
+</pr>
