@@ -1,0 +1,46 @@
+extends layout
+
+block content
+    .w3-container
+        h1 Lista de dados confidenciais do governo
+        table.w3-table-all
+            tr
+                th Estado
+                th sigla
+                th designação
+                tr
+                    td=lista.estado
+                    td=lista.sigla
+                    td=lista.designacao
+    .w3-container
+         table.w3-table-all
+            tr
+                th Estado
+                th designação
+                th id
+                tr
+                    td=lista.estado
+                    td=lista.designacao
+                    td=lista.id
+    .w3-container
+        table.w3-table-all
+            tr
+                th Codigo
+                th titulo
+            each gov2 in lista2
+                tr
+                    td=gov2.codigo
+                    td=gov2.titulo
+    .w3-container
+        table.w3-table-all
+            tr
+                th TipoParticipante
+                th Codigo
+                th Titúlo
+            each gov3 in lista3
+                tr
+                    td=gov3.tipoPar
+                    td=gov3.codigo
+                    td=gov3.titulo
+    address
+        a(href="http://localhost:3000/") HomePage
