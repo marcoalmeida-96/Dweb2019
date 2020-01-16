@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pr SYSTEM "file:/D:/Uminho/4%C2%BA%20Ano/WEB/TP4/pr.dtd">
+<pr>
+    <metadata>
+        <keyname>Exame_daw2019</keyname>
+        <title>Exame</title>
+        <supervisor homepage="http://www4.di.uminho.pt/~jcr/">José Carlos Ramalho</supervisor>
+        <bdate>16-11-2019</bdate>
+        <edate>16-11-2019</edate>
+    </metadata>
+    <workteam>
+        <worker>
+            <identifier>PG41087</identifier>
+            <name>Marco Rodrigues Almeida</name>
+            <email>marcoalmeida.96@hotmail.com</email>
+            <git>https://github.com/marcoalmeida-96</git>
+        </worker>
+    </workteam>
+    <abstract>
+        <p>No exame foram pedidos 2 exercícios, em que no primeiro era necessário criar um API de dados, ao qual optei por utilizar o MongoDB para a persistência dos dados. Num segundo exercício foi pedido para foi pedido para responder a umas questões bem como a utilização de API de dados para consumir os dados. A resposta às questões estão escritas num .txt</p>
+    </abstract>
+   
+</pr>

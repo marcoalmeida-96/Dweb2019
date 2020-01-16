@@ -1,0 +1,14 @@
+Quantas Entidades estão catalogadas?
+R: 546
+
+
+A que Tipologias pertence a Entidade "Autoridade para as Condições de Trabalho" (ent_ACT)?
+R: Administração Pública(AP) e Autoridades de supervisão e fiscalização(ASF)
+
+
+Em que processos a entidade "Autoridade Nacional de Segurança Rodoviária" (ent_ANSR) participa como Iniciador?
+R:Registo nacional de condutores (codigo:400.10.056)
+
+
+De que processos é dona a entidade "Colégio Militar" (ent_CMil)?
+R:Realização de atividades de formação e treino animal

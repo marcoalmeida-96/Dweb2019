@@ -1,0 +1,56 @@
+extends layout
+
+block content
+    .w3-container
+        h1 Entidade
+        table.w3-table-all
+            tr
+                th Id
+                th sioe
+                th Designação
+                th Sigla
+                th Estado
+                th Internacional
+            tr
+                td=lista.id
+                td=lista.sioe
+                td=lista.designacao
+                td=lista.sigla
+                td=lista.estado
+                td=lista.internacional
+    .w3-container
+        h1 Lista de Tipologias
+        table.w3-table-all
+            tr
+                th Id
+                th Designação
+                th Sigla
+            each gov in lista1
+                tr
+                    td=gov.id
+                    td=gov.designacao
+                    td=gov.sigla
+    .w3-container
+        h1 Processos em que é Dono
+        table.w3-table-all
+            tr
+                th Código
+                th Título
+            each gov in lista2
+                tr
+                    td=gov.codigo
+                    td=gov.titulo
+    .w3-container
+        h1 Processos em que é Participante
+        table.w3-table-all
+            tr
+                th Tipo de Participante
+                th Código
+                th Título
+            each gov in lista3
+                tr
+                    td=gov.tipoPar
+                    td=gov.codigo
+                    td=gov.titulo
+        address
+            a(href="http://localhost:3000/") Voltar à página Inicial

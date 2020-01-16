@@ -1,0 +1,13 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='/stylesheets/w3.css')
+    script.
+      function VerEntidade(id){
+        console.log('ola')
+        window.location.href = ('http://localhost:3000/'+ id)
+      }
+  body
+    block content

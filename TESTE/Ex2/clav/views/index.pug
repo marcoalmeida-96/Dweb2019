@@ -1,0 +1,15 @@
+extends layout
+
+block content
+    .w3-container
+        h1 Lista das Entidades
+        table.w3-table-all
+            tr
+                th designacao
+                th sigla
+            each gov in lista
+                tr
+                    td=gov.designacao
+                    td=gov.sigla
+                    td
+                      button.w3-circle.w3-blue-grey(onclick="VerEntidade('"+gov.id+"')") Ver
