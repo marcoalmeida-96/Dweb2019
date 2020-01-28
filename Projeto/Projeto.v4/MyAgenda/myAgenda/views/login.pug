@@ -1,0 +1,32 @@
+extends layout
+
+block content
+  style
+    body {font-family: "Raleway", Arial, sans-serif}
+    .w3-row img {margin-bottom: -8px}
+    
+  body(class="w3-light-grey w3-padding-64 w3-center")
+    button.w3-btn.w3-round-large.w3-border(onclick="window.location.href = '/register'" style="float:right" ) Registar utilizador
+    br
+    img(src='/images/Logo.png' class="w3-left" )
+    br
+    br
+    br
+    br
+    br
+    br
+    h1 Curso Engenharia Informática
+    br
+    br
+    
+    h3 Login
+    br
+    br
+    form(action="/login"  method="POST")
+      input(type="text" name="email" placeholder="email" class="w3-button w3-block w3-light-grey")
+      br
+      input(type="password" name="password" placeholder="password" class="w3-button w3-block w3-light-grey")
+      br
+      br
+      input(type="submit" value="Enviar" class="w3-btn w3-round-large w3-border")
+      

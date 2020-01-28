@@ -1,0 +1,166 @@
+extends layout
+
+block content
+  style
+      body {font-family: "Raleway", Arial, sans-serif}
+      .w3-row img {margin-bottom: -8px}
+      
+    
+  
+  body(class="w3-light-grey w3-padding-64 w3-center")
+    
+         
+    
+    img(src='/images/Logo.png' class="w3-left" )
+    br
+    br
+    h1 Curso Engenharia Informática
+    br
+    br
+
+   
+
+    .w3-third
+      .w3-white.w3-text-grey.w3-card-4
+        .w3-display-container.w3-text-black
+          h2 
+            td=lista2.nome
+          .w3-display-container
+            if lista2.genero==1
+              img(src='/images/masculino.png' style='width:70%' alt='Avatar')
+            else 
+              img(src='/images/feminino.png' style='width:70%' alt='Avatar')
+            
+          .w3-container
+
+            p
+              i.fa.fa-asterisk.fa-fw.w3-margin-left.w3-large.w3-text-teal
+              td=lista2.localidade
+            p
+              i.fa.fa-envelope.fa-fw.w3-margin-left.w3-large.w3-text-teal
+              td=lista2.email
+            p
+              i.fa.fa-asterisk.fa-fw.w3-margin-left.w3-large.w3-text-teal
+              if lista2.genero==1
+                td Masculino
+              else 
+                td Feminino
+            
+         
+            
+            button.w3-btn.w3-round-large.w3-border(onclick="myFunction2()") Editar Utilizador
+            form.w3-container(action='edit' method='POST' id='form1')
+                    
+                      div(id="myDIV" class="w3-hide")
+                        label
+                            b Nome
+                        input.w3-input.w3-border.w3-light-grey(type='text' name='nome' id='nome' value=lista2.nome required )
+                        label
+                            b Localidade
+                        input.w3-input.w3-border.w3-light-grey(type='text' name='localidade' id='localidade' value=lista2.localidade required)
+                        
+                        
+                        input.w3-btn.w3-round-large.w3-border(name='edit' type='submit' value='Editar')
+            hr
+            
+            h1 Os meus grupos
+              
+            if (lista3.length > 0)
+                  
+             
+              each f in lista3
+                if((f.id_utilizadores.includes(lista2.email))||(f.admin==lista2.email))
+                  button.w3-button(id = f._id,onclick="VerGrupo('"+f._id+"')")
+                    b
+                      td= f.titulo
+                  if (lista2.email==f.admin)
+                    td Admin
+                      
+                  br
+            else
+              p Não tem nenhum Grupo  
+      
+
+    .w3-card-4.modal(id='display')
+    .w3-card-4.w3-twothird
+      header.w3-container.w3-dark-grey
+        h1 Os Meus Ficheiros
+        
+      
+      if (lista.length > 0)
+        each f in lista
+            if(f.email==lista2.email)
+                .w3-container()
+          
+                  .w3-display-container.w3-card.w3-white.w3-margin-bottom  
+                    
+                    h5.w3-text-grey.w3-padding-16.w3-left
+                      if lista2.genero==1
+                          img.w3-left(src='/images/masculino.png' style='width:10%' alt='Avatar')
+                      else 
+                          img.w3-left(src='/images/feminino.png' style='width:10%' alt='Avatar')
+                      
+                      label
+                        b.w3-xlarge.w3-left
+                          td=lista2.nome
+                    .w3-container
+                
+                      h5.w3-opacity.w3-display-topmiddle
+                        b
+                          td= f.titulo
+                      br
+                      h5.w3-opacity.w3-middle
+                        label
+                          b Descrição: 
+                        td=' '+ f.desc
+                      br
+                      td
+                        .w3-dropdown-hover.w3-display-topright
+                          button.w3-button Operações
+                          .w3-dropdown-content.w3-bar-block.w3-card-4
+                            button.w3-button(id = 'f_' + f._id, class = 'ficheiro', onclick="showFicheiro("+ JSON.stringify(f) + ")") Download
+                              
+                            button.w3-button(disciplina = f.disciplina,onclick="VerDisciplina('"+f.disciplina+"')") Disciplina
+                            button.w3-button(id = f._id,onclick="VerDetalhes('"+f._id+"')") Detalhes
+                            if (lista2.email==f.email)
+                              td
+                                form.delete-meeting-form(method='POST' action='/api/ficheiros/apagar/'+f._id)
+                                  input.w3-button.button--delete(type='submit' class="w3-button" value='DELETE' onclick='return confirm("Tem a certeza que pretende eliminar o ficheiro? ")')
+                            
+                      
+                      h6.w3-text-teal.w3-display-bottommiddle
+                        i.fa.fa-calendar.fa-fw
+                        td= f.data
+                      br
+                      h6.w3-text-teal.w3-display-bottomleft
+                        
+                        td='Disciplina: '+ f.disciplina
+                      br
+                      hr
+                
+        
+              
+      else
+        p Não tem nenhum ficheiro armazenado
+      
+      
+      script.
+          function myFunction2() {
+              var x = document.getElementById("myDIV");
+              if (x.className.indexOf("w3-show") == -1) {
+                x.className += " w3-show";
+              } else {
+                x.className = x.className.replace(" w3-show", "");
+              }
+            }
+      script.
+        function myFunction4() {
+              var x = document.getElementById("myDIV3");
+              if (x.className.indexOf("w3-show") == -1) {
+                x.className += " w3-show";
+              } else {
+                x.className = x.className.replace(" w3-show", "");
+              }
+            }
+    footer.w3-container.w3-dark-grey
+      address Generated by fileApp, 2019-12 by Tiago Silva and Marco Almeida

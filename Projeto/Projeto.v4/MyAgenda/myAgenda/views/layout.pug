@@ -1,0 +1,146 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> 
+    //<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+    script(src='/javascripts/jquery-3.4.1.min.js')
+    script(src='/javascripts/gficheiros.js')
+
+    //script(src='/javascripts/jquery.modal.min.js')
+    //link(rel='stylesheet' href='/stylesheets/jquery.modal.min.css')
+    //script(src='/javascripts/apagar.js')
+    script.
+      function VerDisciplina(disciplina){
+        console.log('ola')
+        window.location.href = ('http://localhost:5004/disciplina/'+ disciplina)
+      }
+    script.
+      function VerDetalhes(id){
+        console.log('ola')
+        window.location.href = ('http://localhost:5004/ficheiros/'+ id)
+      }
+    script.
+      function VerGrupo(id){
+        console.log('ola')
+        window.location.href = ('http://localhost:5004/grupos/'+ id)
+      }
+  block content  
+  body
+    
+    // Navbar
+    
+
+    div(class="w3-top")
+      div(class="w3-bar w3-ligth-grey w3-card w3-center" style="width:100%;")
+        
+        a(class="active" onclick="window.location.href = '/'" class="w3-bar-item w3-button w3-padding-large fa fa-home") Página Principal
+        
+        .w3-dropdown-hover
+          button.w3-button 1ºAno
+          .w3-dropdown-content.w3-bar-block.w3-card-4
+            a.w3-bar-item.w3-button.w3-dark-grey() 1ºSemestre
+            .w3-bar-block.w3-card-4
+              button.w3-button(onclick="VerDisciplina('AL')") Álgebra Linear
+              button.w3-button(onclick="VerDisciplina('Calculo')") Cálculo
+              button.w3-button(onclick="VerDisciplina('TMD')") Tópicos de Matemática Discreta
+              button.w3-button(onclick="VerDisciplina('PF')") Programação Funcional
+              button.w3-button(onclick="VerDisciplina('EES')") Elementos de Engenharia de Sistemas
+              button.w3-button(onclick="VerDisciplina('LAB1')") Laboratórios de Informática I
+            a.w3-bar-item.w3-button.w3-dark-grey() 2ºSemestre
+            .w3-bar-block.w3-card-4
+              button.w3-button(onclick="VerDisciplina('SC')") Sistemas de Computação
+              button.w3-button(onclick="VerDisciplina('Analise')") Análise
+              button.w3-button(onclick="VerDisciplina('TFM')") Tópicos de Física Moderna
+              button.w3-button(onclick="VerDisciplina('LEI')") Lógica EI
+              button.w3-button(onclick="VerDisciplina('PI')") Programação Imperativa
+              button.w3-button(onclick="VerDisciplina('LAB2')") Laboratórios de Informática II
+            .w3-dropdown-content.w3-bar-block.w3-card-4
+        .w3-dropdown-hover
+          button.w3-button 2ºAno
+          .w3-dropdown-content.w3-bar-block.w3-card-4
+            a.w3-bar-item.w3-button.w3-dark-grey() 1ºSemestre
+            .w3-bar-block.w3-card-4
+              button.w3-button(onclick="VerDisciplina('ISD')") Introdução aos Sitemas Dinâmicos
+              button.w3-button(onclick="VerDisciplina('EA')") Estatística Aplicada
+              button.w3-button(onclick="VerDisciplina('EC')") Engenharia Económica
+              button.w3-button(onclick="VerDisciplina('AC')") Arquitetura de Computadores
+              button.w3-button(onclick="VerDisciplina('CD')") Comunicação de Dados
+              button.w3-button(onclick="VerDisciplina('AC')") Algoritmos e Complexidade
+            a.w3-bar-item.w3-button.w3-dark-grey() 2ºSemestre
+            .w3-bar-block.w3-card-4
+              button.w3-button(onclick="VerDisciplina('SO')") Sistemas Operativos
+              button.w3-button(onclick="VerDisciplina('POO')") Programação Orientada a Objetos
+              button.w3-button(onclick="VerDisciplina('EEE')") Eletromagnetismo EE
+              button.w3-button(onclick="VerDisciplina('OPCAO')") OPCAO
+              button.w3-button(onclick="VerDisciplina('Programas')") Programas
+              button.w3-button(onclick="VerDisciplina('LAB3')") Laboratórios de Informática III
+            .w3-dropdown-content.w3-bar-block.w3-card-4
+        .w3-dropdown-hover
+          button.w3-button 3ºAno
+          .w3-dropdown-content.w3-bar-block.w3-card-4
+            a.w3-bar-item.w3-button.w3-dark-grey() 1ºSemestre
+            .w3-bar-block.w3-card-4
+              button.w3-button(onclick="VerDisciplina('BD')") Base de Dados
+              button.w3-button(onclick="VerDisciplina('DSS')") Desenvolvimento de Sistemas de Software
+              button.w3-button(onclick="VerDisciplina('MDIO')") Modelos Determinísticos de Investigação Operacional
+              button.w3-button(onclick="VerDisciplina('SD')") Sistemas Distribuídos
+              button.w3-button(onclick="VerDisciplina('RC')") Redes de Computadores
+              button.w3-button(onclick="VerDisciplina('MNONL')") Métodos Numéricos e Otimização não Linear
+            a.w3-bar-item.w3-button.w3-dark-grey() 2ºSemestre
+            .w3-bar-block.w3-card-4
+              button.w3-button(onclick="VerDisciplina('SRCR')") Sistemas de Representação de Conhecimento e Raciocínio
+              button.w3-button(onclick="VerDisciplina('MEIO')") Modelos Estocásticos de Investigação Operacional
+              button.w3-button(onclick="VerDisciplina('CG')") Computação Gráfica
+              button.w3-button(onclick="VerDisciplina('CC')") Comunicações por Computador
+              button.w3-button(onclick="VerDisciplina('PL')") Processamento de Linguagens
+              button.w3-button(onclick="VerDisciplina('LAB4')") Laboratoórios de Informática IV
+            .w3-dropdown-content.w3-bar-block.w3-card-4
+        .w3-dropdown-hover
+          button.w3-button 4ºAno
+          .w3-dropdown-content.w3-bar-block.w3-card-4
+            a.w3-bar-item.w3-button.w3-dark-grey() 1ºSemestre
+            .w3-bar-block.w3-card-4
+              button.w3-button(onclick="VerDisciplina('BDnoSQL')") Base de Dados noSQL
+              button.w3-button(onclick="VerDisciplina('DAW')") Desenvolvimento Aplicações WEB
+              button.w3-button(onclick="VerDisciplina('AEBD')") Administração e Exploração de Base de Dados
+              button.w3-button(onclick="VerDisciplina('ER')") Engenharia de Requisito
+              button.w3-button(onclick="VerDisciplina('AW')") Arquitetura de Software
+              button.w3-button(onclick="VerDisciplina('AD')") Análise de Dados
+            a.w3-bar-item.w3-button.w3-dark-grey() 2ºSemestre
+            .w3-bar-block.w3-card-4
+              button.w3-button(onclick="VerDisciplina('DC')") Descoberta do Conhecimento
+              button.w3-button(onclick="VerDisciplina('EW')") Engenharia Web
+              button.w3-button(onclick="VerDisciplina('GPS')") Gestão de Processos de Software
+              button.w3-button(onclick="VerDisciplina('IS')") Interoperabilidade Semântica
+              button.w3-button(onclick="VerDisciplina('LEEI')") Laboratório em Engenharia Informática
+            .w3-dropdown-content.w3-bar-block.w3-card-4
+        .w3-dropdown-hover
+          button.w3-button 5ºAno
+          .w3-dropdown-content.w3-bar-block.w3-card-4
+            a.w3-bar-item.w3-button.w3-dark-grey() 1ºSemestre
+            .w3-bar-block.w3-card-4
+              button.w3-button(onclick="VerDisciplina('PEI')") Projeto de Engenharia Informática
+            a.w3-bar-item.w3-button.w3-dark-grey() Anual
+            .w3-bar-block.w3-card-4
+              button.w3-button(onclick="VerDisciplina('Teses')") Dissertação em Engenharia Informática
+        //a(onclick="window.location.href = '/logout'" class="w3-bar-item w3-button w3-padding-large") 2ºAno
+        
+        //a(onclick="window.location.href = '/logout'" class="w3-bar-item w3-button w3-padding-large") 3ºAno
+        
+        //a(onclick="window.location.href = '/logout'" class="w3-bar-item w3-button w3-padding-large") 4ºAno
+        
+        //a(onclick="window.location.href = '/logout'" class="w3-bar-item w3-button w3-padding-large") 5ºAno
+       
+        a(onclick="window.location.href = '/contact'" class="w3-bar-item w3-button w3-padding-large") Contact
+        
+        a(class="active" onclick="window.location.href = '/perfil'" class="w3-bar-item w3-button w3-padding-large") Perfil
+        a(onclick="window.location.href = '/grupos'" class="w3-bar-item w3-button w3-padding-large") Grupos
+
+
+        button.w3-btn.w3-round-large.w3-border(onclick="window.location.href = '/logout'") Logout 
+    

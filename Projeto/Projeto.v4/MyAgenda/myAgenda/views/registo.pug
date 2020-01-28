@@ -1,0 +1,43 @@
+extends layout
+
+block content
+  style
+    body {font-family: "Raleway", Arial, sans-serif}
+    .w3-row img {margin-bottom: -8px}
+  body(class="w3-light-grey w3-padding-64 w3-center")  
+    button.w3-btn.w3-round-large( onclick="window.location.href = '/login'" style="float:right" ) Login
+    img(src='/images/Logo.png' class="w3-left" )
+    br
+    br
+    br
+    br
+    br
+    br
+    br
+    h3 Registo de utilizador
+    br
+    br
+    
+    
+    form.w3-container.w3-display-middle(action="/reg" method="POST" style="width:30%")
+      input.w3-input(type="text" name="email" placeholder="email" class="w3-button w3-block w3-dark-grey" required )
+      br
+   
+      input.w3-input(type="text" name="nome" placeholder="nome" class="w3-button w3-block w3-dark-grey" required )
+      br
+      input.w3-input(type="date" name="data_Nasc" placeholder="Data Nascimento" class="w3-button w3-block w3-dark-grey" required )
+      br
+      input.w3-input(type="text" name="localidade" placeholder="localidade" class="w3-button w3-block w3-dark-grey" required )
+      br
+      select.w3-select(name='genero' required )
+        option(value='' disabled='' selected='') Género
+        option(value='1') Masculino
+        option(value='2') Feminino
+    
+      input.w3-input(type="password" name="password" placeholder="password" class="w3-button w3-block w3-dark-grey" required )
+      br
+      br
+      input(type="submit" value="Enviar" class="w3-btn w3-round-large w3-border")
+    br
+    br
+    

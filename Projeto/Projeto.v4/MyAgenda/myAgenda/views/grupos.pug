@@ -1,0 +1,93 @@
+extends layout
+
+block content
+    style
+        body {font-family: "Raleway", Arial, sans-serif}
+        .w3-row img {margin-bottom: -8px}
+      
+    
+  
+    body(class="w3-light-grey w3-padding-64 w3-center")
+        
+    
+
+        h3 Registo de grupo
+        br
+        br
+        
+        form.w3-container(action="/api/grupos/inserir" method="POST" )
+            .w3-cell-row
+                label.w3-cell.w3-left Titulo:
+                input.w3-input.w3-border.w3-light-grey(type='text' name='titulo' required)
+            .w3-cell-row
+                label.w3-cell.w3-left Grupo Privado:
+                select.w3-select.w3-light-grey(name='oculto' required)
+                    option(value='1') Sim
+                    option(value='0') Não
+            
+               
+            input(type="submit" value="Enviar" class="w3-btn w3-round-large w3-border")
+        br
+        br
+        h1 Lista de grupos
+        input(class="w3-input w3-border w3-padding w3-right w3-light-grey" style="width:30%" type="text" placeholder="Pesquise por Titulo do Grupo.." id="myInput" onkeyup="myFunction5()")
+        if (lista.length > 0)
+            
+                    
+                    if(lista.length>0)
+                        
+                        table.w3-tiny.w3-card.w3-table-all(id='myTable')
+                            tr
+                                th Titulo
+                                th Tipo de Grupo
+                                th Administador
+                                th Utilizadores
+                               
+                            each f in lista
+                                tr
+                                    td=f.titulo
+                                    if f.oculto==1
+                                        td Privado
+                                    else 
+                                        td Público
+                                    td=f.admin
+                                    td=f.id_utilizadores.join(" ")
+                                    if(f.oculto)
+                                        if((f.id_utilizadores.includes(lista2.email))||(f.admin==lista2.email))
+                                        
+                                            td
+                                                button.w3-button(id = f._id,onclick="VerGrupo('"+f._id+"')") Entrar no grupo
+                                                if (f.admin==lista2.email)
+                                                    td
+                                                        form.delete-meeting-form(method='POST' action='/api/grupos/apagar/'+f._id)
+                                                            input.w3-button.button--delete.w3-btn.w3-round-large.w3-middle(type='submit' class="w3-button" value='X' onclick='return confirm("Tem a certeza que pretende eliminar o Grupo? ")')
+                                                    
+                                    else
+                                        td
+                                            button.w3-button(id = f._id,onclick="VerGrupo('"+f._id+"')") Entrar no grupo
+                                            if (f.admin==lista2.email)
+                                                td
+                                                    form.delete-meeting-form(method='POST' action='/api/grupos/apagar/'+f._id)
+                                                        input.w3-button.button--delete.w3-btn.w3-round-large.w3-middle(type='submit' class="w3-button" value='X' onclick='return confirm("Tem a certeza que pretende eliminar o Grupo? ")')
+                                                    
+                    else
+                        p Não tem nenhum nenhum armazenado    
+        script.
+            function myFunction5() {
+            var input, filter, table, tr, td, i;
+            input = document.getElementById("myInput");
+            filter = input.value.toUpperCase();
+            table = document.getElementById("myTable");
+            tr = table.getElementsByTagName("tr");
+            for (i = 0; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td")[0];
+                if (td) {
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+                }
+            }
+            }

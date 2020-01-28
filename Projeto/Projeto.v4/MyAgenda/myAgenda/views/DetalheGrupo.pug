@@ -1,0 +1,160 @@
+extends layout
+
+block content
+    style
+        body {font-family: "Raleway", Arial, sans-serif}
+        //.w3-row img {margin-bottom: -8px}
+        
+  
+    body(class="w3-light-grey w3-padding-64 w3-center")
+        br
+        br
+        br
+        br
+        h1.w3-text-grey.w3-padding-16.w3-middle
+            td=lista.titulo
+            .w3-container()
+
+                    .w3-display-container.w3-card.w3-white.w3-margin-bottom
+                        br
+                        
+                        form.w3-container(action="/api/ficheiros/inserir" method="post" enctype="multipart/form-data")
+                                .w3-container(id='f1')
+                                        b.w3-small Adicionar Publicação
+                                        .w3-cell-row
+                                            label.w3-cell.w3-left.w3-small Titulo:
+                                            input.w3-small.w3-input.w3-border.w3-light-grey(type='text' name='titulo' id='titulo' required  )
+                                            //label.w3-small.w3-cell.w3-left idGrupo:
+                                            input.w3-small.w3-input.w3-border.w3-light-grey(type="hidden" name='idGrupo' id='idGrupo' value=lista._id )
+                                        
+                                        .w3-cell-row
+                                        label.w3-cell.w3-left.w3-small Comentário:
+                                        textarea.w3-small.w3-input.w3-border.w3-light-grey(type='text' name='desc' id='desc' required )
+                                        
+                                        .w3-cell-row
+                                        label.w3-cell.w3-left.w3-small Ficheiro:
+                                        input.w3-small.w3-input.w3-cell(type="file" name="ficheiro" )
+                                
+                                //input.w3-button.button--delete.w3-btn.w3-round-large.w3-display-topright.w3-small(type='submit' class="w3-button" value='X' onclick='return confirm("Tem a certeza que pretende eliminar a publicação? ")')
+
+                                input.w3-small.w3-btn.w3-round-large.w3-border.w3-right(type="submit" value="Enviar")
+                                    
+                                    
+                        
+                    
+                    .w3-container
+                        h5.w3-opacity.w3-left
+                            b UTILIZADORES: 
+                            td= lista.id_utilizadores.join(" ")
+                        br
+                        
+                        b
+                            button.w3-small.w3-btn.w3-round-large.w3-border.w3-right.w3-xlarge.w3-border-black(onclick="myFunction4()") Add Utilizador
+                            button.w3-small.w3-btn.w3-round-large.w3-border.w3-left.w3-xlarge.w3-border-black(onclick="myFunction5()") Remove Utilizador
+
+                        form.w3-container(action='/editGrupo/'+lista._id method="POST" )
+                            div(id="myDIV3" class="w3-hide")
+                                form.w3-container.w3-card-4
+                                h6 Utilizadores
+
+                                each f in lista3
+                                    //Para entrar
+                                    if((lista.id_utilizadores.includes(f.email)==false)&&(lista.admin==lista2.email)&&(f.email!=lista.admin))
+                                        
+                                        p
+                                            input.w3-check(type='checkbox' value=f.email name="id_utilizadores")
+                                            label.w3-small 
+                                                td=f.email
+                                    
+                                //input.w3-input.w3-border.w3-light-grey.w3-middle(align="middle" type='text' style="width:30%" name="id_utilizadores")
+                                b.w3-small Só o Administrador do grupo pode adicionar utilizadores
+                                br
+                                input(type="submit" style="width:30%" value="Adicionar" class="w3-btn w3-round-large w3-border w3-small")    
+                            hr   
+                        form.w3-container(action='/editGrupos2/'+lista._id method="POST" )
+                            div(id="myDIV4" class="w3-hide")
+                                form.w3-container.w3-card-4
+                                h6 Utilizadores
+
+                                each f in lista3
+                                    //Para entrar
+                                    if((lista.id_utilizadores.includes(f.email))&&(lista.admin==lista2.email)&&(f.email!=lista.admin))
+                                        
+                                        p
+                                            input.w3-check(type='radio' value=f.email name="id_utilizadores")
+                                            label.w3-small 
+                                                td=f.email
+                                                
+                                    
+                                //input.w3-input.w3-border.w3-light-grey.w3-middle(align="middle" type='text' style="width:30%" name="id_utilizadores")
+                                b.w3-small Só o Administrador do grupo pode adicionar utilizadores
+                                br
+                                input(type="submit" style="width:30%" value="Remover" class="w3-btn w3-round-large w3-border w3-small")    
+                            hr   
+                        h1 Feed de publicações
+                        .w3-card-4.modal(id='display')
+
+                        if (lista4.length > 0)
+                                each f in lista4
+                                    if(f.idGrupo==lista._id)
+                                        .w3-container()
+                                
+                                        .w3-display-container.w3-card.w3-white.w3-margin-bottom
+                                            br
+                                            
+                                            h5.w3-text-grey.w3-padding-16.w3-display-topleft
+                                                i.fa.fa-suitcase.fa-fw.w3-margin-left.w3-xxlarge.w3-text-teal
+                                                td=f.email
+                                            .w3-container
+                                        
+                                            h5.w3-opacity.w3-display-topmiddle
+                                                b
+                                                    td= f.titulo
+                                            br
+                                            h5.w3-opacity.w3-middle
+                                                
+                                                td= f.desc
+                                            br
+                                            td
+                                                if(f.name)
+                                                    br
+                                                    .w3-display-bottomright.w3-small
+                                                        a.w3-btn.w3-round-large.w3-border.w3-middle(href='/download/' + f.name, download=f.name) Download
+                                                        
+                                                        
+                                                    
+                                            
+                                            h6.w3-text-teal.w3-display-bottommiddle
+                                                i.fa.fa-calendar.fa-fw
+                                                td= f.data
+                                            if (lista2.email==lista.admin||f.email==lista2.email)
+                                                td
+                                                    form.delete-meeting-form(method='POST' action='/api/ficheiros/apagarPublicacao/'+f._id)
+                                                        input.w3-button.button--delete.w3-btn.w3-round-large.w3-display-topright.w3-small(type='submit' class="w3-button" value='X' onclick='return confirm("Tem a certeza que pretende eliminar a publicação? ")')
+                                                
+                                            
+                                            hr
+                                        
+                                
+                                    
+                        else
+                            p Não tem nenhum ficheiro armazenado
+
+    script.
+        function myFunction4() {
+              var x = document.getElementById("myDIV3");
+              if (x.className.indexOf("w3-show") == -1) {
+                x.className += " w3-show";
+              } else {
+                x.className = x.className.replace(" w3-show", "");
+              }
+            }
+    script.
+        function myFunction5() {
+              var x = document.getElementById("myDIV4");
+              if (x.className.indexOf("w3-show") == -1) {
+                x.className += " w3-show";
+              } else {
+                x.className = x.className.replace(" w3-show", "");
+              }
+            }

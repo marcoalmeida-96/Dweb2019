@@ -1,0 +1,192 @@
+extends layout
+
+block content
+  style
+      body {font-family: "Raleway", Arial, sans-serif}
+      .w3-row img {margin-bottom: -8px}
+      
+    
+  
+  body(class="w3-light-grey w3-padding-64 w3-center")
+    
+         
+    
+    img(src='/images/Logo.png' class="w3-left" )
+    br
+    br
+    h1 Curso Engenharia Informática
+    br
+    br
+    .w3-card-4
+      header.w3-container.w3-dark-grey
+        
+        h2 Novo ficheiro
+
+      form.w3-container(action="/api/ficheiros/inserir" method="post" enctype="multipart/form-data")
+        .w3-container(id='lista')
+          .w3-container(id='f1')
+            .w3-cell-row
+              label.w3-cell.w3-left Titulo:
+              input.w3-input.w3-border.w3-light-grey(type='text' name='titulo' id='titulo' value=lista.titulo required )
+            
+            .w3-cell-row
+              label.w3-cell.w3-left Descrição:
+              textarea.w3-input.w3-border.w3-light-grey(type='text' name='desc' id='desc' value=lista.desc required )
+            .w3-cell-row
+              label.w3-cell.w3-left Disciplina:
+              select.w3-select.w3-light-grey(name='disciplina' required )
+                option(value='' disabled='' selected='') 1ºAno
+                  option(value='AL') Álgebra Linear
+                  option(value='Calculo') Cálculo
+                  option(value='TMD') Tópicos de Matemática Discreta
+                  option(value='PF') Programação Funcional
+                  option(value='EES') Elementos de Engenharia de Sistemas
+                  option(value='LAB1') Laboratórios de Informática I
+                  option(value='SC') Sistemas de Computação
+                  option(value='Analise') Análise
+                  option(value='TFM') Tópicos de Física Moderna
+                  option(value='LEI') Lógica EI
+                  option(value='PI') Programação Imperativa
+                  option(value='LAB2') Laboratórios de Informática II
+                option(value='' disabled='' selected='') 2ºAno
+                  option(value='ISD') Introdução aos Sitemas Dinâmicos
+                  option(value='EA') Estatística Aplicada
+                  option(value='EC') Engenharia Económica
+                  option(value='AC') Arquitetura de Computadores
+                  option(value='CD') Comunicação de Dados
+                  option(value='AlC') Algoritmos e Complexidade
+                  option(value='SO') Sistemas Operativos
+                  option(value='POO') Programação Orientada a Objetos
+                  option(value='EEE') Eletromagnetismo EE
+                  option(value='OPCAO') OPCAO
+                  option(value='Programas') Programas
+                  option(value='LAB3') Laboratórios de Informática III
+                option(value='' disabled='' selected='') 3ºAno
+                  option(value='BD') Base de Dados
+                  option(value='DSS') Desenvolvimento de Sistemas de Software
+                  option(value='MDIO') Modelos Determinísticos de Investigação Operacional
+                  option(value='SD') Sistemas Distribuídos
+                  option(value='RC') Redes de Computadores
+                  option(value='MNONL') Métodos Numéricos e Otimização não Linear
+                  option(value='SRCR') Sistemas de Representação de Conhecimento e Raciocínio
+                  option(value='MEIO') Modelos Estocásticos de Investigação Operacional
+                  option(value='CG') Computação Gráfica
+                  option(value='CC') Comunicações por Computador
+                  option(value='PL') Processamento de Linguagens
+                  option(value='LAB4') Laboratoórios de Informática IV
+                option(value='' disabled='' selected='') 4ºAno
+                  option(value='DAW') Desenvolvimento Aplicações WEB
+                  option(value='AEBD') Administração e Exploração de Base de Dados
+                  option(value='AD') Análise de Dados
+                  option(value='ER') Engenharia de Requisitos
+                  option(value='AS') Arquitetura de Software
+                  option(value='BDnoSQL') Base de Dados noSQL
+                  option(value='DC') Descoberta do Conhecimento
+                  option(value='EW') Engenharia Web
+                  option(value='GPS') Gestão de Processos de Software
+                  option(value='IC') Interoperabilidade Semântica
+                  option(value='LEEI') Laboratório em Engenharia Informática
+                option(value='' disabled='' selected='') 5ºAno
+                  option(value='PEI') Projeto de Engenharia Informática
+                  option(value='Teses') Dissertação em Engenharia Informática
+              //input.w3-input.w3-cell(type="text" name="disciplina")
+            .w3-cell-row
+              label.w3-cell.w3-left Ficheiro:
+              input.w3-input.w3-cell(type="file" name="ficheiro" required )
+            
+        //button.w3-button.w3-round-large.w3-indigo.w3-dark-grey.w3-left(id='mais1' ) +1
+        input.w3-btn.w3-round-large.w3-border.w3-right(type="submit" value="Enviar")
+
+    
+
+    .w3-third
+      .w3-white.w3-text-grey.w3-card-4
+        .w3-display-container.w3-text-black
+          h2 
+                td=lista2.nome
+          .w3-display-container
+            if lista2.genero==1
+              img(src='/images/masculino.png' style='width:70%' alt='Avatar')
+            else 
+              img(src='/images/feminino.png' style='width:70%' alt='Avatar')
+            
+          .w3-container
+            p
+              i.fa.fa-asterisk.fa-fw.w3-margin-left.w3-large.w3-text-teal
+              td=lista2.localidade
+            p
+              i.fa.fa-envelope.fa-fw.w3-margin-left.w3-large.w3-text-teal
+              td=lista2.email
+            p
+              i.fa.fa-asterisk.fa-fw.w3-margin-left.w3-large.w3-text-teal
+              if lista2.genero==1
+                td Masculino
+              else 
+                td Feminino
+            hr
+        
+      
+      
+
+   
+    w3-card-4.modal.w3-middle(id='display')
+    .w3-card-4.w3-twothird
+      header.w3-container.w3-dark-grey
+        h1 Feed de publicações
+        
+      
+      if (lista.length > 0)
+
+        each f in lista
+          if(f.idGrupo==undeafined)
+                .w3-container()
+          
+                  .w3-display-container.w3-card.w3-white.w3-margin-bottom
+                    br
+                      
+                    h5.w3-text-grey.w3-padding-16.w3-left
+                      i.fa.fa-suitcase.fa-fw.w3-margin-left.w3-xlarge.w3-text-teal.w3-left
+                      
+                      label
+                        b.w3-xlarge.w3-left
+                          td=f.email
+                    .w3-container
+                
+                      h5.w3-opacity.w3-display-topmiddle
+                        b
+                          td= f.titulo
+                      br
+                      h5.w3-opacity.w3-middle
+                        
+                          td= f.desc
+                      br
+                      td
+                        .w3-dropdown-hover.w3-display-topright
+                          button.w3-button Operações
+                          .w3-dropdown-content.w3-bar-block.w3-card-4
+                            a.w3-btn.w3-round-large.w3-middle(href='/download/' + f.name, download=f.name) Download
+                              
+                            button.w3-btn.w3-round-large.w3-middle(disciplina = f.disciplina,onclick="VerDisciplina('"+f.disciplina+"')") Disciplina
+                            button.w3-btn.w3-round-large.w3-middle(id = f._id,onclick="VerDetalhes('"+f._id+"')") Detalhes
+                            if (lista2.email==f.email)
+                              td
+                                form.delete-meeting-form(method='POST' action='/api/ficheiros/apagar/'+f._id)
+                                  input.w3-button.button--delete.w3-btn.w3-round-large.w3-middle(type='submit' class="w3-button" value='DELETE' onclick='return confirm("Tem a certeza que pretende eliminar o ficheiro? ")')
+                            
+                      
+                      h6.w3-text-teal.w3-display-bottommiddle
+                        i.fa.fa-calendar.fa-fw
+                        td= f.data
+                      
+                      h6.w3-text-teal.w3-display-bottomleft
+                        
+                        td='Disciplina: '+ f.disciplina
+                 
+        
+              
+      else
+        p Não tem nenhum ficheiro armazenado
+    
+    footer.w3-container.w3-dark-grey
+      address Generated by fileApp, 2019-12 by Tiago Silva and Marco Almeida
+    
